@@ -31,7 +31,7 @@
   "theme_color": "#317EFB",
   "background_color": "transparent",
   "start_url": "/",
-  "display": "fullscreen",
+  "display": "standalone",
   "orientation": "any",
   "related_applications": [],
   "prefer_related_applications": false
