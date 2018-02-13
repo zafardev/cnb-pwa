@@ -1,0 +1,36 @@
+<div class="search-results"
+         data-infinite-scroll
+         debounce
+         [infiniteScrollDistance]="1"
+         [infiniteScrollUpDistance]="2"
+         [infiniteScrollThrottle]="500"
+         (scrolled)="onScrollDown()"
+         (scrolledUp)="onUp()">
+
+<h1 mat-subheader>New Car Models</h1>
+<app-loading *ngIf="loading"></app-loading>
+
+<mat-card *ngIf="newCarResult.length">
+    <mat-list *ngFor="let data of newCarResult" routerLink="/">
+        <h3 mat-line><b>{{data.manufacturer_name}} {{data.model_name}}</b></h3>
+        <mat-list-item [lazy-load-images]="{ rootMargin: '' }">
+            <img mat-list-avatar attr.data-src="{{data.fullimage}}"
+                title="{{data.manufacturer_name}} {{data.model_name}}"
+                alt="{{data.manufacturer_name}} {{data.model_name}}">
+            <h3 mat-line><b>{{data.min_price}} - {{data.max_price}}</b></h3>
+            <p mat-line>
+                <span>{{data.class}} {{data.fuel}}</span>
+            </p>
+            <p mat-line>
+                <span>{{data.min_mileage}} {{data.max_mileage}} kmpl</span>
+            </p>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+    </mat-list>
+    <div *ngIf="endResult">Cars loding finished.</div>
+    <app-loading *ngIf="loadMoreLoading"></app-loading>
+</mat-card>
+
+
+
+

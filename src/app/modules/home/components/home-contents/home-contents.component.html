@@ -1,0 +1,50 @@
+<div class="page__content">
+    <!-- Banner-->
+    <app-loading *ngIf="bannerLoading"></app-loading>
+    <div class="section home_banner" *ngIf="featuredNews.length">
+        <ngx-carousel class="banner" [inputs]="carouselBanner" (carouselLoad)="carouselBannerLoad()">
+            <ngx-item NgxCarouselItem
+             *ngFor="let banner of featuredNews; let i = index">
+                <div  class="image-list" [lazy-load-images]="{ rootMargin: '50px' }">
+                  <div [routerLink]="['news/news-detail', banner.id_link]" class="bannerStyle" [attr.data-background-src]="banner.image_path">
+                      <h1>{{i + 1}}</h1>
+                  </div>
+               </div>
+                <p>{{banner.title}}</p>
+            </ngx-item>
+            <button NgxCarouselPrev class="leftRs">&lt;</button>
+            <button NgxCarouselNext class="rightRs">&gt;</button>
+        </ngx-carousel>
+        
+    </div>
+    <!-- FEATURED-->
+    <app-loading *ngIf="loading"></app-loading>
+    <div class="section" *ngIf="featured.length">
+      <h1 class="section-title">Featured</h1>
+      <div class="scrollList">
+        <ul>
+          <li *ngFor="let feature of featured">
+            <div class="featured_card">
+              <div class="image-list" [lazy-load-images]="{ rootMargin: '50px' }">
+                <img attr.data-src="{{feature.image_path}}"
+                  alt="{{feature.title}}" title="{{feature.title}}">
+                  <div class="featured_card_container">
+                      <h4><b>{{feature.title}}</b></h4> 
+                      <p>₹ {{feature.price}} <span class="h__fsize13">
+                        ({{feature.price_text}})</span>
+                      <button class="btn btn-primary">{{feature.button}}</button>
+                      </p>
+                  </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!--// FEATURED-->
+  </div>
+  
+  
+  
+    
+  

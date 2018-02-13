@@ -1,0 +1,31 @@
+<div class="search-results"
+         data-infinite-scroll
+         debounce
+         [infiniteScrollDistance]="1"
+         [infiniteScrollUpDistance]="2"
+         [infiniteScrollThrottle]="500"
+         (scrolled)="onScrollDown()">
+
+<h1 mat-subheader>Latest Auto News India - CNB</h1>
+<app-loading *ngIf="loading"></app-loading>
+
+<mat-card *ngIf="newsResult.length">
+    <mat-list *ngFor="let data of newsResult" [routerLink]="['news-detail', data.story_id]">
+        <mat-list-item [lazy-load-images]="{ rootMargin: '' }">
+            <img mat-list-avatar attr.data-src="{{data.story_image}}"
+                title="{{data.title}}"
+                alt="{{data.title}}">
+            <p mat-line>
+                <span>{{data.title}}</span>
+            </p>
+            
+        </mat-list-item>
+        <mat-divider></mat-divider>
+    </mat-list>
+    <div *ngIf="endResult">News loding finished.</div>
+    <app-loading *ngIf="loadMoreLoading"></app-loading>
+</mat-card>
+
+
+
+

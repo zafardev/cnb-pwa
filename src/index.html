@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CnB</title>
+  <base href="/">
+  <!-- Meta -->
+
+  <meta name="keywords" content="Default cars in india" />
+  <meta itemprop="description" name="description" content="Default CarAndBike - Find new cars" />
+
+  <!-- twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@carandbike">
+  <meta name="twitter:title" content="Index title">
+  <meta name="twitter:description" content="Index desc">
+  <!-- <meta name="twitter:image" content="https://auto.ndtv.com/media/svg/carandbike_logo.svg?v=1_1"> -->
+  <meta name="twitter:url" content="https://auto.ndtv.com" />
+  <!-- facebook and other social sites -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="CarAndBike">
+  <meta property="og:title" content="Index title og">
+  <meta property="og:description" content="Index desc od">
+  <!-- <meta property="og:image" content="https://auto.ndtv.com/media/svg/carandbike_logo.svg?v=1_1"> -->
+  <meta property="og:url" content="https://auto.ndtv.com">
+
+  <meta name="theme-color" content="#317EFB"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="msapplication-starturl" content="/">
+  <link rel="icon" type="image/x-icon" href="./assets/icons/favicon.ico">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" media="print" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" media="print">
+
+  <style>
+    h1 {
+      font-size: 1.6rem;
+    }
+    
+    .splash {
+      opacity: 0;
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      color: #272c33;
+      padding-top: 25vh;
+      text-align: center;
+      z-index: -1;
+      font-family: monospace;
+      }
+      app-root:empty + .splash {
+        opacity: 1;
+        z-index: 100;
+      }
+      .splash h1 {
+            margin-bottom: 50px;
+      };
+    
+    </style>
+</head>
+<body>
+  <app-root></app-root>
+  <div class="splash"  id="content">
+    <img src="./assets/img/carandbike_logo.svg" width="256px" alt="CnB PWA logo">
+    <h1>CnB PWA...</h1>
+ </div>
+  <noscript>No Js!</noscript>
+    
+</body>
+</html>

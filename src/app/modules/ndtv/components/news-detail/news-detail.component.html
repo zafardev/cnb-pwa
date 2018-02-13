@@ -1,0 +1,11 @@
+
+<app-loading *ngIf="loading"></app-loading>
+<div class="section" *ngIf="!loading">
+  <h1 [innerHTML]="newsDetailResult.title"></h1>
+  <p [innerHTML]="newsDetailResult.excerpt"></p>
+  <p>By <span><b>{{newsDetailResult.author_name}}</b></span> on <span>{{newsDetailResult.published_date}}</span></p>
+  <div class="comtent_img">
+    <img class="comtent_img" src="{{newsDetailResult.image_full}}" title="" alt="">
+  </div>
+</div>
+
