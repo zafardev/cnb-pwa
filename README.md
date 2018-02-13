@@ -1,4 +1,4 @@
-# HNPWA Angular 5.0
+# Carnad bike PWA SEO
 
 Watch the [Angular 5 Service Worker screencast](https://angularfirebase.com/lessons/hnpwa-angular-5-progressive-web-app-service-worker-tutorial/). 
 
