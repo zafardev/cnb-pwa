@@ -4,17 +4,17 @@ Watch the [Angular 5 Service Worker](https://angularfirebase.com/lessons/hnpwa-a
 
 Installation :
 
-Download/clone cnb-pwa
-cd cnb-pwa
-npm install
+Download/clone cnb-pwa  
+cd cnb-pwa  
+npm install  
 
-Development mode
-ng serve
-http://localhost:4200  (without PWA)
+Development mode :  
+ng serve  
+http://localhost:4200  (without PWA)  
 
-Prod mode with PWA
-npm run pwa
-http://localhost:8080/
+Prod mode with PWA :  
+npm run pwa  
+http://localhost:8080/  
 
 Progressive Web App using: 
 
