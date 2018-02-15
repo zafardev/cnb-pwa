@@ -6,7 +6,7 @@ import { NewCarsModelsService } from '../services/new-cars-models.service'
   selector: 'app-new-cars-models',
   providers: [NewCarsModelsService, SeoService],
   templateUrl: './new-cars-models.component.html',
-  styleUrls: ['./new-cars-models.component.css']
+  styleUrls: ['./new-cars-models.component.less']
 })
 export class NewCarsModelsComponent implements OnInit {
   filterQuery:string = '';

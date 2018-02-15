@@ -9,7 +9,7 @@ import { NgxCarousel } from 'ngx-carousel';
 @Component({
   selector: 'home-contents',
   templateUrl: './home-contents.component.html',
-  styleUrls: ['./home-contents.component.css'],
+  styleUrls: ['./home-contents.component.less'],
   providers: [HomeService, SeoService]
 })
 export class HomeContentsComponent implements OnInit {

@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "hnpwa"
+    "name": "carandbike"
   },
   "apps": [
     {
@@ -21,7 +21,7 @@
       "prefix": "",
       "serviceWorker": true,
       "styles": [
-        "styles.less"
+        "less/global.less"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",

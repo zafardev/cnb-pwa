@@ -5,7 +5,7 @@ import { NewsService } from '../../services/news.service'
 @Component({
   selector: 'news',
   templateUrl: './news.component.html',
-  styleUrls: ['./news.component.css'],
+  styleUrls: ['./news.component.less'],
   providers: [SeoService, NewsService]
 })
 export class NewsComponent implements OnInit {
