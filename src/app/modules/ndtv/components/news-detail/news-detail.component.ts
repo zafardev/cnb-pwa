@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SeoService } from "../../../../services/seo.service";
 import { NewsService } from '../../services/news.service';
+import { DomSanitizer } from '@angular/platform-browser';
+
 
 
 @Component({
@@ -11,7 +13,7 @@ import { NewsService } from '../../services/news.service';
   providers: [SeoService, NewsService]
 })
 export class NewsDetailComponent implements OnInit {
-
+  contentBody;
   srory_id;
   loading:boolean = false;
   newsDetailResult: Array<any> = [];
@@ -19,12 +21,18 @@ export class NewsDetailComponent implements OnInit {
     private seo: SeoService,
     private _newsService: NewsService,
     private _router: Router,
+    private _sanitizer: DomSanitizer,
     private route: ActivatedRoute) {
       this.route.params.subscribe(params => {
         if (params['srory_id']) {
           this.srory_id = params['srory_id'];
         }
       });
+  }
+
+  public getSafeContent(content: string = '') {
+    //this.contentBody = this._sanitizer.bypassSecurityTrustUrl(content);
+    return this._sanitizer.bypassSecurityTrustHtml(content);
   }
 
   ngOnInit() {

@@ -6,7 +6,7 @@
             <ngx-item NgxCarouselItem
              *ngFor="let banner of featuredNews; let i = index">
                 <div  class="image-list" [lazy-load-images]="{ rootMargin: '50px' }">
-                  <div [routerLink]="['news/news-detail', banner.id_link]" class="bannerStyle" [attr.data-background-src]="banner.image_path">
+                  <div [routerLink]="['news', banner.id_link]" class="bannerStyle" [attr.data-background-src]="banner.image_path">
                       <h1>{{i + 1}}</h1>
                   </div>
                </div>

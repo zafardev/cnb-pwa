@@ -7,5 +7,6 @@
   <div class="comtent_img">
     <img class="comtent_img" src="{{newsDetailResult.image_full}}" title="" alt="">
   </div>
+  <p [innerHTML]="getSafeContent(newsDetailResult.content)"></p>
 </div>
 
