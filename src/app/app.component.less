@@ -113,17 +113,17 @@
             left: @content-hr-space;
             margin-top: -1px;
             position: absolute;
-            .transition(@transition-time);
+            transition: @transition-time;
             top: 50%;
             width: 18px;
             will-change: transform;
 
             &:first-child {
-                .transform(translate(0,-6px));
+                transform: translate(0,-6px);
             }
 
             &:nth-child(3) {
-                .transform(translate(0,6px));
+                transform: translate(0,6px);
             }
         }
 
