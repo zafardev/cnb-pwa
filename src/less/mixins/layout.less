@@ -1,0 +1,57 @@
+
+/* 
+    Created on : Feb 12, 2018, 12:23:58 PM
+    Author     : muthuraman
+    Module     : Module name here...
+    Page       : Page name here...
+*/
+
+
+.content() {
+    .content {
+        padding-left: @content-hr-space;
+        padding-right: @content-hr-space;
+    }
+}
+
+.main-content(@pt: @main-content-vr-space, @pb: @main-content-vr-space) {
+    .main-content { 
+        padding-bottom: @pt;
+        padding-top: @pb;
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.section(@type:null, @mb:@section-bottom-space, @pb:@section-alpha-space, @pt: @section-alpha-space) {
+    .section {
+        margin-bottom: @mb;
+
+        &.pad {
+            padding-bottom: @pb;
+            padding-top: @pt;
+        }
+
+        & when (@type = alpha) {
+            &--alpha {
+                padding-bottom: @pb;
+                padding-top: @pt;
+            }
+        }
+        & when (@type = grey) {
+            &--bggrey {
+                background-color: #f7f7f7;
+            }
+        }
+
+    }
+}
+
+.extend-content() {
+    .extend-content {
+        margin-left: -(@content-hr-space);
+        margin-right: -(@content-hr-space);
+    }
+}

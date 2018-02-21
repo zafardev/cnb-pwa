@@ -57,26 +57,20 @@ export class HomeContentsComponent implements OnInit {
           .ngxcarouselPoint {
             list-style-type: none;
             text-align: center;
-            padding: 37px;
-            margin: 0;
             white-space: nowrap;
             overflow: auto;
-            position: absolute;
             width: 100%;
-            bottom: 20px;
-            left: 0;
-            box-sizing: border-box;
           }
           .ngxcarouselPoint li {
             display: inline-block;
             border-radius: 999px;
-            background: rgba(255, 255, 255, 0.55);
+            background-color: rgba(0, 0, 0, 0.55);
             padding: 5px;
             margin: 9px 3px;
             transition: .4s ease all;
           }
           .ngxcarouselPoint li.active {
-              background: white;
+              background: #D13438;
               width: 10px;
           }
         `

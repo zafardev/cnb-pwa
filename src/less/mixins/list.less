@@ -1,0 +1,78 @@
+
+/* 
+    Created on : Feb 12, 2018, 5:23:07 PM
+    Author     : muthuraman
+    Module     : Module name here...
+    Page       : Page name here...
+*/
+
+.list(@type){
+    .list {
+        & when (@type = init) {
+            padding-left: 24px;
+
+            li {
+                margin-bottom: @content-hr-space;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+
+            ul {
+                margin-top: @content-hr-space;
+
+                > li {
+                    padding-left: 16px;
+                }
+            }
+        }
+
+        /* I, II, III...*/
+        & when (@type = roman) {
+            &-roman {
+                > li {
+                    list-style-type: lower-roman;
+                }
+            }
+        }
+
+        /* a, b, c....*/
+        & when (@type = alpha) {
+            &-alpha {
+                > li {
+                    list-style-type: lower-alpha;
+                }
+
+                ul > li {
+                    list-style-type: lower-roman;
+                }
+            }
+        }
+
+        /* .... */
+        & when (@type = disc) {
+            &-disc {
+                li {
+                    list-style-type: disc;
+                }
+                ul > li {
+                    list-style-type: circle;
+                }
+            }
+        }
+
+        /* 1, 2, 3.. */
+        & when (@type = decimal) {
+            &-decimal {
+                > li {
+                    list-style-type: decimal;
+                }
+
+                ul > li {
+                    list-style-type: lower-alpha;
+                }
+            }
+        }
+    }
+}

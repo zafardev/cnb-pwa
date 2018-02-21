@@ -1,0 +1,75 @@
+/* 
+    Created on : May 4, 2016, 6:33:17 PM
+    Author      : Muthuraman
+*/
+
+.svg-icon {
+    display: inline-block;
+    line-height: 1;
+    min-height: 1em; // Avoid cluttering once svg loaded
+
+    svg,
+    img {
+        height: 1em;
+        width: 1em;
+    }
+
+    svg {
+        fill: currentColor;
+        overflow: hidden;
+        position: relative;
+        vertical-align: top;
+    }
+
+    &.s48 svg {
+        width: 1.5em;
+    }
+
+    &.s64 svg {
+        width: 2em;
+    }
+
+    .clr-pri {
+        fill: @accent-clr;
+    }
+
+    &__normal,
+    &__active {
+        left: 0;
+        position: absolute;
+        top: 0;
+        transform-origin: center center;
+
+        .transition(@transition-time);
+    }
+
+    &__normal { 
+        .transform(scale3d(1,1,1));
+    }
+
+    &__active {
+        .transform(scale3d(0,0,0));
+    }
+
+    &:active,
+        &:focus,
+        &.has-active {
+
+        .svg-icon__normal {
+            .transform(scale3d(0,0,0));
+        }
+
+        .svg-icon__active {
+            .transform(scale3d(1,1,1));
+        }
+    }
+}
+
+.svg-library {
+    &, path, rect, g {
+        fill: currentColor;
+    }
+    .clr-pri {
+        fill: @accent-clr;
+    }
+}

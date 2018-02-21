@@ -1,0 +1,138 @@
+
+/* 
+    Created on : Feb 12, 2018, 7:08:07 PM
+    Author     : muthuraman
+    Module     : Module name here...
+    Page       : Page name here...
+*/
+
+@zindex1: 99;
+@zindex2: 9999;
+
+.fixed-footer(@type) { 
+    .fixed-footer {
+        & when (@type = init) {
+            transform: translate3d(0, 100%, 0);
+            transition: transform @duration-m @ease-in;
+            width: 100%;
+            z-index: @zindex2; 
+
+            .position(fixed, null, null, 0, 0);
+
+            &__btn,
+            .btn {
+                font-weight: @semi-bold;
+                padding: 13px 10px;
+            }
+
+            &__notes {
+                box-shadow: none;
+                color: @base-clr;
+                padding: 16px @content-hr-space 20px;
+            }
+
+            .page.is-pageActive &.has-hide {
+                transform: translate3d(0, 100%, 0);
+            }
+        }
+        & when (@type = trans) {
+            &--trans {
+                padding: 0 @content-hr-space @content-hr-space;
+            }
+
+            &--trans &__btn {
+                border-color: @accent-clr;
+                border-bottom-color: #8e2e2a;
+                border-radius: 4px;
+                border-width: 1px 1px 3px;
+                box-shadow: 0 2px 8px rgba(0,0,0,.5);
+
+                &:last-child {
+                    margin-left: @content-hr-space;
+                }
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+            &--trans .btn-tertiary {
+                color: @accent-clr;
+            }
+            &--trans .btn-secondary {
+                color: @base-clr;
+                border-color: #f2f2f2;
+                background-color: #FFF;
+            }
+
+            &--trans .btn-success {
+                border-color: #078B75 #078B75 #075f50;
+            }
+        }
+        & when (@type = material) {
+            &--material {
+                background-color: #fff;
+                box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.5);
+
+                .btn {
+                    font-weight: 500;
+                    width: auto;
+                }
+            }
+        }
+    }
+}
+
+// Compare sticky button
+.sticky-action() {
+    .sticky-action {
+        position: fixed;
+        left: 100%;
+        top: 40vh;
+        transform: translate3d(0, 0, 0);
+        transition: transform @duration-l @ease-in;
+        z-index: @zindex2;  
+
+        &.has-open {
+            transform: translate3d(-100%, 0, 0);
+        }
+
+        &__btn {
+            border-radius: 4px 0 0 4px;
+            min-height: 48px;
+            padding: 4px 2px;
+            width: 52px;
+        }
+
+        &__icon,
+        &__label {
+            display: block;
+        }
+
+        &__icon {
+            margin-bottom: 2px;
+
+            .font-size(24);
+        }
+
+        &__badge {
+            background-color: #FFF;
+            border-radius: 50%;
+            color: @accent-clr;
+            display: block;
+            font-weight: @semi-bold;
+            line-height: 16px;
+            position: absolute; 
+            right: 4px;
+            text-align: center;
+            top: 6px;
+            width: 16px;
+            .font-size(@micro);
+        }
+
+        &__label {
+            .font-size(10);
+        }
+        &__close {
+            float:right;   
+        }
+    }
+}

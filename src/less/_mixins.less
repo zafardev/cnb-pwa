@@ -1,0 +1,420 @@
+// Import
+@import "mixins/alert.less";
+@import "mixins/base.less";
+@import "mixins/button.less";
+@import "mixins/card.less";
+@import "mixins/forms.less";
+@import "mixins/helper.less";
+@import "mixins/hr-scroller.less";
+@import "mixins/layout.less";
+@import "mixins/list.less";
+@import "mixins/loader.less";
+@import "mixins/media.less";
+@import "mixins/sticky.less";
+@import "mixins/title.less";
+
+.font-size(@font-size: 16){
+    @remValue: (@font-size / 10);
+    @pxValue: (@font-size);
+    //font-size: ~"@{pxValue}px";
+    font-size: ~"@{remValue}rem";
+}
+
+.border-radius(@value){
+    border-radius: @value;
+}
+
+.opacity( @value ) {
+    @percent: @value * 100;
+    opacity: @value;
+}
+
+.linear-gradient(@startClr, @endClr) {
+    //background-image: ~"-moz-linear-gradient(top, @{startClr}, @{endClr})"; /* Firefox 3.6+ */
+    //background: ~"-webkit-linear-gradient(top, @{startClr}, @{endClr})"; /* For Safari 5.1 to 6.0 */
+    //background-image: ~"-ms-linear-gradient(top, @{startClr}, @{endClr})"; /* IE 10+ */
+    background: ~"linear-gradient(@{startClr}, @{endClr})"; /* Standard syntax */
+}
+
+.gradient(@type; @colors; @dir: 0deg; @prefixes: webkit, moz, ms, o; @index: length(@prefixes)) when (@index > 0) {
+    .gradient(@type; @colors; @dir; @prefixes; (@index - 1));
+
+    @prefix  : extract(@prefixes, @index);
+    @dir-old : 90 - (@dir);
+
+    background-image: ~"-@{prefix}-@{type}-gradient(@{dir-old}, @{colors})";
+    & when ( @index = length(@prefixes) ) {
+        background-image: ~"@{type}-gradient(@{dir}, @{colors})";
+    }
+}
+
+.radial-gradient(@startClr, @endClr) {
+
+    /* Old browsers */
+    background: @endClr; 
+
+    /* FF3.6-15 */
+    background: ~"-moz-radial-gradient(center, ellipse cover,  @{startClr} 0%, @{endClr} 100%)"; 
+
+    /* Chrome10-25,Safari5.1-6 */
+    background: ~"-webkit-radial-gradient(center, ellipse cover,  @{startClr} 0%, @{endClr} 100%)"; 
+
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: ~"radial-gradient(ellipse at center, @{startClr} 0%, @{endClr} 100%)"; 
+
+}
+
+.transition(@value) {
+    -webkit-transition: @arguments;
+    -moz-transition: @arguments;
+    -ms-transition: @arguments;
+    -o-transition: @arguments;
+    transition: @arguments;
+}
+
+.transform(@value){
+    -webkit-transform: @arguments;
+    -moz-transform: @arguments;
+    -o-transform: @arguments;
+    -ms-transform: @arguments;
+    transform: @arguments;
+}
+
+.transform-style (@val) {
+    -webkit-transform-style: @arguments;
+    -moz-transform-style: @arguments;
+    -ms-transform-style: @arguments;
+    -o-transform-style: @arguments;
+    transform-style: @arguments;
+}
+
+.transform-origin (@val) {
+    -webkit-transform-origin: @arguments;
+    -moz-transform-origin: @arguments;
+    -ms-transform-origin: @arguments;
+    -o-transform-origin: @arguments;
+    transform-origin: @arguments;
+}
+
+.perspective(@val) {
+    -webkit-perspective: @val;
+    -moz-perspective: @val;
+    -ms-perspective: @val;
+    -o-perspective: @val;
+    perspective: @val;
+}
+
+.animation(@val) {
+    -webkit-animation: @arguments;
+    -moz-animation: @arguments;
+    -ms-animation: @arguments;
+    -o-animation: @arguments;
+    animation: @arguments;
+}
+
+.animation-name(@val) {
+    -webkit-animation-name: @val;
+    -moz-animation-name: @val;
+    -ms-animation-name: @val;
+    -o-animation-name: @val;
+    animation-name: @val;
+}
+
+.animation-duration(@val) {
+    -webkit-animation-duration: @val;
+    -moz-animation-duration: @val;
+    -ms-animation-duration: @val;
+    -o-animation-duration: @val;
+    animation-duration: @val;
+}
+
+
+.animation-timing-function(@val) {
+    -webkit-animation-timing-function: @val;
+    -moz-animation-timing-function: @val;
+    -ms-animation-timing-function: @val;
+    -o-animation-timing-function: @val;
+    animation-timing-function: @val;
+}
+
+.animation-fill-mode(@val) {
+    -webkit-animation-fill-mode: @val;
+    -moz-animation-fill-mode: @val;
+    -ms-animation-fill-mode: @val;
+    -o-animation-fill-mode: @val;
+    animation-fill-mode: @val;
+}
+
+.button(
+@fillColor: @clr-primary, 
+@textColor: @clr-primary-white, 
+@activeFillColor: '', 
+@activeTextColor: @clr-primary-white, 
+@hoverFillColor: '', 
+@hoverTextColor: @clr-primary-white,
+@disabledFillColor: '',
+@disabledTextColor: '') {
+    background: @fillColor;
+    color: @textColor;
+    .font-size(@h6);
+    .setActiveFillColor() when (iscolor(@activeFillColor)) {
+        &:active, &.selected {
+            background-color: @activeFillColor;
+            color: @activeTextColor;
+        }
+    }
+    .setActiveFillColor() when not (iscolor(@activeFillColor)) {
+        &:active, &.selected {
+            background-color: lighten(@fillColor, 5%);
+            color: @activeTextColor;
+        }
+    }
+    .setHoverFillColor() when (iscolor(@hoverFillColor)) {
+        &:hover,
+            &:active {
+            background-color: @hoverFillColor;
+            color: @hoverTextColor;
+        }
+    }
+    .setHoverFillColor() when not (iscolor(@hoverFillColor)) {
+        &:hover,
+            &:active {
+            background-color: darken(@fillColor, 10%);
+            color: @hoverTextColor;
+        }
+    }
+    .setDisabledFillColor() when (iscolor(@disabledFillColor)) {
+        &.disabled {
+            background-color: @disabledFillColor;
+        }
+    }
+    .setDisabledFillColor() when not (iscolor(@disabledFillColor)) {
+        &.disabled {
+            background-color: fade(@fillColor, 50%);
+        }
+    }
+    .setDisabledTextColor() when (iscolor(@disabledTextColor)) {
+        &.disabled {
+            color: @disabledTextColor;
+        }
+    }
+    .setDisabledTextColor() when not (iscolor(@disabledTextColor)) {
+        &.disabled {
+            color: fade(@clr-primary-white, 50%);
+        }
+    }
+    .setActiveFillColor;
+    .setHoverFillColor;
+    .setDisabledFillColor;
+    .setDisabledTextColor;
+}
+
+.box-sizing(@sizing: border-box) {
+    -moz-box-sizing: @sizing;
+    -webkit-box-sizing: @sizing;
+    box-sizing: @sizing;
+}
+
+//TO INSERT CLEARFIX IN ANY WRAPPER
+.clearfix(){
+    &:before,
+        &:after{
+        content: "";
+        display: table;
+    }
+    &:after{
+        clear: both;
+    }
+    zoom: 1;
+}
+
+//TO INSERT ICON ON PSUEDO CLASSES
+.icon-properties() {
+    font-family: @font-face-3;
+    font-weight: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+//FOR FLEXBOX GRIDS
+
+.flexbox() {
+    display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+    display: -ms-flexbox;           /* TWEENER - IE 10 */
+    display: -webkit-flex;          /* NEW - Chrome */
+    display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.align-items(@val) {
+    -webkit-box-align: @val;
+    -webkit-align-items: @val;
+    -ms-flex-align: @val;
+    align-items: @val;
+}
+
+.align-self(@val){
+    -webkit-align-self: @val; /* Safari 7.0+ */
+    align-self: @val;
+}
+
+.flex-justify(@val){
+    -webkit-justify-content: @val;
+    justify-content: @val;
+}
+
+.flex(@val) {
+    -webkit-box-flex: @val;            /* OLD - iOS 6-, Safari 3.1-6 */
+    -moz-box-flex: @val;               /* OLD - Firefox 19- */
+    -webkit-flex: @val;                /* Chrome */
+    -ms-flex: @val;                    /* IE 10 */
+    flex: @val;                        /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+.flex-grow(@val) {
+    -webkit-flex-grow: @val; /* Safari 6.1+ */
+    -moz-flex-grow: @val; /* IE 10 */ 
+    -ms-flex-grow: @val; /* IE 10 */ 
+    flex-grow: @val;
+}
+
+.flex-shrink(@val) {
+    -webkit-flex-shrink: @val; /* Safari 6.1+ */
+    -moz-flex-shrink: @val; /* IE 10 */ 
+    -ms-flex-shrink: @val; /* IE 10 */ 
+    flex-shrink: @val;
+}
+
+.flex-flow(@val) {
+    -webkit-flex-flow: @val; /* Safari 6.1+ */
+    -moz-flex-flow: @val; /* IE 10 */ 
+    -ms-flex-flow: @val; /* IE 10 */ 
+    flex-flow: @val;
+}
+
+.appearance(@val){
+    -webkit-appearance: @val;
+    -moz-appearance: @val;
+    appearance: @val;
+}
+
+.browser-hack(@prop,@val) {
+    -webkit-@{prop}: @val;
+    @{prop}: @val;
+}
+
+.card-shadow() {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+}
+
+.icon-default() {
+    font-family: 'icon-mobile';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    line-height: inherit;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    vertical-align: middle;
+}
+
+// clip-path
+.clip-path(@shape; @coords...) {
+    -webkit-clip-path: ~"@{shape}(@{coords})";
+    -moz-clip-path: ~"@{shape}(@{coords})";
+    clip-path: ~"@{shape}(@{coords})";
+}
+
+.touch-scroll() {
+    overflow-y: scroll; /* has to be scroll, not auto */
+    -webkit-overflow-scrolling: touch;
+}
+
+.truncate (@shadow-start-color, @shadow-end-color) {
+    display: -webkit-box;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    /*
+    &:after {
+        background-image: -webkit-gradient(linear,left top,right top,color-stop(0%,@shadow-start-color),color-stop(100%,@shadow-end-color));
+        background-image: -webkit-linear-gradient(left,@shadow-start-color,@shadow-end-color);
+        background: linear-gradient(to right,@shadow-start-color,@shadow-end-color);
+        bottom: 0;
+        content: '';
+        display: block;
+        position: absolute;
+        right: 0;
+        height: 20px; // font-size X line-height
+        max-height: 100%;
+        width: 45px;
+    }
+    */
+}
+
+.img-placeholder(@placeholder-url: @img-placeholder-url ) {
+    background: @img-placeholder-bg url('@{placeholder-url}') no-repeat center center;
+}
+
+// Position
+/*
+Example:
+.position() { position: static; }
+.position(relative) { position: relative; }
+.position(absolute, top, right) { position: absolute; top: 0; bottom: auto; left: auto; right: 0; }
+.position(absolute, bottom, left) { position: absolute; top: auto; bottom: 0; left: 0; right: auto; }
+.position(fixed, 20px, 50%) { position: fixed; top: 20px; right: 50%; }
+.position(fixed, 10px, null, null, 10%) { position: absolute; top: 10px; left: 10%; }
+.position(absolute, 10px, -, -, 10%) { position: absolute; top: 10px; left: 10%; }
+*/
+
+.position(@position: static; @a: null; @b: null; @c: null; @d: null) {
+
+    & when (@position = sticky) {
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -o-sticky;
+        position: -ms-sticky;
+    }
+
+    position: @position;
+
+    & when (top = @a) {
+        top: 0;
+        bottom: auto;
+    }
+
+    & when (bottom = @a) {
+        top: auto;
+        bottom: 0;
+    }
+
+    & when (left = @b) {
+        left: 0;
+        right: auto;
+    }
+
+    & when (right = @b) {
+        left: auto;
+        right: 0;
+    }
+
+    & when not (null = @a) and not (~'-' = @a) and not (top = @a) and not (bottom = @a) {
+        top: @a;
+    }
+
+    & when not (null = @b) and not (~'-' = @b) and not (top = @b) and not (bottom = @b) {
+        right: @b;
+    }
+
+    & when not (null = @c) and not (~'-' = @c) {
+        bottom: @c;
+    }
+
+    & when not (null = @d) and not (~'-' = @d) {
+        left: @d;
+    }
+}

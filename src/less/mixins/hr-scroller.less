@@ -1,0 +1,113 @@
+
+/* 
+    Created on : Feb 12, 2018, 1:42:58 PM
+    Author     : muthuraman
+    Module      : Horizontal scroller
+    Purpose     : This block is used for to scroll any elements horizontally; 
+    Pages       : Home, Compare, New car landing, Classified Listing
+*/
+
+.hr-scroll(@type) {
+    .hr-scroll {
+        
+        & when (@type = init) {
+
+            overflow-x: scroll;
+            overflow-y: hidden;
+            -webkit-overflow-scrolling: touch;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            &__content {
+                display: flex;
+                font-size: 0;
+                white-space: nowrap;
+                flex-wrap: nowrap;
+            }
+
+            &__item {
+                .font-size(@default-font-size);
+                display: inline-block;
+                flex-shrink: 0;
+                vertical-align: top;
+                white-space: normal;
+
+                > .card {
+                    min-height: 100%;
+                }
+            }
+        }
+
+        /* Cards with spacing */
+        & when (@type = gutter) {
+            &--gutter &__item {
+                padding-right: @content-hr-space;
+
+                &:first-child {
+                    margin-left: @content-hr-space;
+                }
+            }
+        }
+
+        /* Cards with shadow */
+        & when (@type = shadow) {
+            &--shadow {
+                margin-bottom: -5px;
+                margin-top: -5px;
+            }
+
+            &--shadow &__content {
+                padding-bottom: 5px;
+                padding-top: 5px;
+            }
+        }
+
+        /* Cards with shadow 10px */
+        & when (@type = shadow10) {
+            &--shadow10 {
+                margin-bottom: -10px;
+                margin-top: -10px;
+            }
+
+            &--shadow10 &__content {
+                padding-bottom: 10px;
+                padding-top: 10px;
+            }
+        }
+
+        /* one & second's edge view */
+        & when (@type = alpha) {
+            &--alpha &__item {
+                width : 84vw;
+
+                @media (min-width: @media-tablet) {
+                    width : 40vw;
+                }
+            }
+        }
+
+        /* two & half view */
+        & when (@type = beta) {
+            &--beta &__item {
+                width : 45vw;
+
+                @media (min-width: @media-tablet) {
+                    width : 45vw;
+                }
+            }
+        }
+
+        /* one & half view */
+        & when (@type = gamma) {
+            &--gamma &__item {
+                width : 60vw;
+
+                @media (min-width: @media-tablet) {
+                    width : 40vw;
+                }
+            }
+        }
+    }
+}

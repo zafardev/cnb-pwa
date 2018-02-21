@@ -1,15 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
-// @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-// @import 'assets/css/home.css'; 
 
-@nice-blue: rgb(173, 107, 91);  
-@text-color:  rgb(8, 9, 10);
+@import "_mixins.less";
+@import "_variables.less";
 
+// Helper Mixins
+.reset-init; .base-init; 
+.cf; 
+.float-align; .float-align(right);
+.content-align; .content-align(left);
+.relative;
+.mb(0); .mb(1);.mb(2); .mb(3); .mb(4);
+.mr(1);
+.h-block;
+.h-hideme; .h-hidden;
+.h-link; .h-bold; .h-uppercase; .h-em; .h-txt-truncate; .h-truncate; .h-fsize(13); .h-fsize(14); .h-fsize(16);
+.content; .main-content; .section; .extend-content;
+.card;
+.img-wrap(init); 
+.hr-scroll(init);
 
-.test_global {
-    background-color: @nice-blue;
-    color: @text-color;
-}
-
+// Components
+@import "components/flex-grid.less";
+@import "components/typography.less";
+@import "components/svg.less";
+@import "components/inline-block.less";
 
 

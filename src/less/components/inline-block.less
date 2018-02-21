@@ -1,0 +1,20 @@
+
+/* 
+    Created on  : 3 Aug, 2015, 5:11:40 PM
+    Author      : muthuraman
+    Module      : Inline Block; It'll work along with "flex-grid" module
+    Pages       : CTO page, Recommend
+*/
+
+.inline-block {
+    font-size: 0;
+    white-space: nowrap;
+
+    &__item {
+        .font-size(@default-font-size);
+        display: inline-block;
+        vertical-align: top;
+        white-space: normal;
+    }
+
+}

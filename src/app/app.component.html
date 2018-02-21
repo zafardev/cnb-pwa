@@ -1,31 +1,69 @@
-<!--The content below is only a placeholder and can be replaced.-->
 <header class="header js-headerMain">
-  <div class="header__bar">
-        <div class="header__hamburger">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
+    <div class="header__bar">
+        <button class="header__btn header__hamburger btn" type="button">
+            <span class="header__hamburger-line"></span>
+            <span class="header__hamburger-line"></span>
+            <span class="header__hamburger-line"></span>
+        </button>
+        <a href="/" class="header__logo img-wrap full-width">
+            <img src="../assets/img/carandbike_logo.svg?v=1_1" alt="CarAndBike.com" title="CarAndBike.com">
+        </a>
+        <div class="header__btnmain header__btngroup h__ml-auto">
+            <button class="header__btnsec btn" onclick="window.location.href = 'https://auto.ndtv.com/auto-expo';" type="button">
+                <span class="header__btnsecin">Auto Expo</span>
+            </button>
+            <button class="header__btn btn" type="button">
+                <i class="header__btn-icon svg-icon">
+                    <svg role="icon" title="location">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/icons-all.svg?v=1518612444#icon-location"></use>
+                    </svg>
+                </i>
+            </button>
+            <button class="header__btn btn" type="button">
+                <i class="header__btn-icon svg-icon">
+                    <svg role="icon" title="search">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/icons-all.svg?v=1518612444#icon-search"></use>
+                    </svg>
+                </i>
+            </button>
         </div>
-        <a routerLink="/" class="header__logo img-wrap full-width">
-            <img src="../assets/img/carandbike_logo.svg" alt="CarAndBike - An NDTV Venture"
-             width="144" height="26" /></a>
-  </div>
-  <nav class="header__nav hr-scroll">
-        <div class="scrollmenu">
-            <a data-title="Cars" routerLink="new-cars">Cars</a>
-            <a routerLink="bikes">Bikes</a>
-            <a routerLink="news">News</a>
-            <a routerLink="reviews">Reviews</a>
-            <a routerLink="sell-cars" data-badge="New">Sell Car</a>
-            <a routerLink="discuss">Discuss</a>
-            <a routerLink="videos">Videos</a>  
-            <a routerLink="shop">Shop</a>
-            <a routerLink="elite">Elite</a>
-            <a routerLink="photos">Photos</a>
-            
-        </div>
-  </nav>
+    </div>
 </header>
-<div class="test">Testing component Less</div>
-<div class="test_global">Testing global Less</div>
+
+<nav class="header__nav hr-scroll">
+    <ul class="header__nav-ul hr-scroll__content">
+        <li class="header__nav-li hr-scroll__item">
+            <a class="header__nav-link" data-title="Cars" routerLink="new-cars">Cars</a>
+        </li>
+        <li class="header__nav-li hr-scroll__item">
+            <a class="header__nav-link" routerLink="bikes">Bikes</a>
+        </li>
+
+        <li class="header__nav-li hr-scroll__item">
+            <a class="header__nav-link" routerLink="news">News</a>
+        </li>
+        <li class="header__nav-li hr-scroll__item">
+            <a class="header__nav-link" routerLink="reviews">Reviews</a>
+        </li>
+        <li class="header__nav-li hr-scroll__item">
+            <a class="header__nav-link" routerLink="sell-cars" data-badge="New">Sell Car</a>
+        </li>
+        <li class="header__nav-li hr-scroll__item">
+            <a class="header__nav-link" routerLink="discuss">Discuss</a>
+        </li>
+        <li class="header__nav-li hr-scroll__item">
+            <a class="header__nav-link" routerLink="videos">Videos</a>
+        </li>
+        <li class="header__nav-li hr-scroll__item">
+            <a class="header__nav-link" routerLink="shop">Shop</a>
+        </li>
+        <li class="header__nav-li hr-scroll__item">
+            <a class="header__nav-link" routerLink="elite">Elite</a>
+        </li>
+        <li class="header__nav-li hr-scroll__item">
+            <a class="header__nav-link" routerLink="photos">Photos</a>
+        </li>
+    </ul>
+</nav>
+
 <router-outlet></router-outlet>
