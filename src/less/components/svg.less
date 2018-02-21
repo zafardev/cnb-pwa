@@ -40,15 +40,15 @@
         top: 0;
         transform-origin: center center;
 
-        .transition(@transition-time);
+        transition: @transition-time;
     }
 
     &__normal { 
-        .transform(scale3d(1,1,1));
+        transform: scale3d(1,1,1);
     }
 
     &__active {
-        .transform(scale3d(0,0,0));
+        transform: scale3d(0,0,0);
     }
 
     &:active,
@@ -56,11 +56,11 @@
         &.has-active {
 
         .svg-icon__normal {
-            .transform(scale3d(0,0,0));
+            transform: scale3d(0,0,0);
         }
 
         .svg-icon__active {
-            .transform(scale3d(1,1,1));
+            transform: scale3d(1,1,1);
         }
     }
 }
