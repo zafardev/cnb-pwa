@@ -244,3 +244,55 @@
         }
     }
 } 
+
+//hamburger toggle slide-panel overlay
+.slide-panel {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: #FFF;
+    background-color:#FFF;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.slide-panel-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.slide-panel a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.slide-panel a:hover, .slide-panel a:focus {
+    color: #f1f1f1;
+}
+
+.slide-panel .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+  .slide-panel a {font-size: 20px}
+  .slide-panel .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+//End hamburger toggle slide-panel overlay

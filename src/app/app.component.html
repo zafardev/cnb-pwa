@@ -1,15 +1,15 @@
 <header class="header js-headerMain">
     <div class="header__bar">
-        <button class="header__btn header__hamburger btn" type="button">
+        <button (click)="openNav()" class="header__btn header__hamburger btn" type="button">
             <span class="header__hamburger-line"></span>
             <span class="header__hamburger-line"></span>
             <span class="header__hamburger-line"></span>
         </button>
-        <a href="/" class="header__logo img-wrap full-width">
+        <a routerLink="/" class="header__logo img-wrap full-width">
             <img src="../assets/img/carandbike_logo.svg?v=1_1" alt="CarAndBike.com" title="CarAndBike.com">
         </a>
         <div class="header__btnmain header__btngroup h__ml-auto">
-            <button class="header__btnsec btn" onclick="window.location.href = 'https://auto.ndtv.com/auto-expo';" type="button">
+            <button class="header__btnsec btn" (click)="window.location.href = 'https://auto.ndtv.com/auto-expo';" type="button">
                 <span class="header__btnsecin">Auto Expo</span>
             </button>
             <button class="header__btn btn" type="button">
@@ -65,5 +65,14 @@
         </li>
     </ul>
 </nav>
+<!-- Side panel -->
+<div [style.width]="getOverlayWidth()" class="slide-panel">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <div class="slide-panel-content">
+        <a routerLink="new-cars">Cars</a>
+        <a routerLink="news">News</a>
+    </div>
+</div>
+<!-- End side panel -->
 
 <router-outlet></router-outlet>
