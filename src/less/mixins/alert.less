@@ -1,0 +1,81 @@
+
+/* 
+    Created on : Feb 12, 2018, 5:17:25 PM
+    Author     : muthuraman
+    Module     : Module name here...
+    Page       : Page name here...
+*/
+
+.alert-text(@type: error, @color: @error-clr, @fsize: 1.4rem) {
+    .@{type}-text { 
+        color: @color;
+        font-size: @fsize;
+        padding-top: 6px;
+    }
+}
+
+.alert(@type) {
+    .alert-block {
+        & when (@type = init) {
+            border: 1px solid @border-clr;
+            color: @base-clr;
+            padding: @content-hr-space;
+
+            &__icon,
+            &__ttl {
+                color: inherit;
+            }
+            &__icon {
+                font-size: 36px;
+            }
+
+            &__ttl {
+                .font-size(@h4);
+            }
+
+            &__desc {
+                color: @base-clr;
+                .font-size(@h5);
+                margin-bottom: 0;
+            }
+            &__ok,
+            &__cancel {
+                .font-size(@h5);
+                text-decoration: none;
+            }
+            &__ok {
+                color: inherit;
+                font-weight: @semi-bold;
+            }
+            &__cancel {
+                color: @base-clr;
+                margin-right: 10px;
+            }
+        }
+        & when (@type = success) {
+            &--success {
+                color: @success-clr;
+            }
+        }
+        & when (@type = info) {
+            &--info {
+                background-color: @info-clr;
+                border-color: @info-clr;
+                color: @info-text-clr;
+            }
+        }
+        & when (@type = warning) {
+            &--warning {
+                color: @alert-text-clr;
+            }
+            &--warning &__desc {
+                color: inherit;
+            }
+        }
+        & when (@type = error) {
+            &--error {
+                color: @error-clr;
+            }
+        }
+    }
+}

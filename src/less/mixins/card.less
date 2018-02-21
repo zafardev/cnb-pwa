@@ -1,0 +1,26 @@
+
+/* 
+    Created on : Feb 12, 2018, 1:38:12 PM
+    Author     : muthuraman
+    Module     : Module name here...
+    Page       : Page name here...
+*/
+
+.card(@type: null) {
+    .card { 
+        background-color: #fff;
+        display: block;
+        .card-shadow;
+
+        & when (@type = shadow2) {
+            &--shadow2 {
+                box-shadow: 0 0 14px 0 rgba(0,0,0,0.08);
+            }
+        }
+        & when (@type = shadow5) {
+            &--shadow5 {
+                box-shadow: 0 0 1px 1px rgba(0,0,0,.08), 0 0 13px 10px rgba(0,0,0,.04);
+            }
+        }
+    }
+}

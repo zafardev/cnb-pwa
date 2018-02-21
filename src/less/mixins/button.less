@@ -1,0 +1,262 @@
+
+/* 
+    Created on : Feb 9, 2018, 7:20:10 PM
+    Author     : muthuraman
+    Module     : Module name here...
+    Page       : Page name here...
+*/
+
+.btn(@type) {
+    .btn {
+        & when (@type = init) {
+            -webkit-appearance: none;
+            background: none;
+            border: 1px solid transparent;
+            border-radius: 0;
+            color: #fff;
+            display: block;
+            line-height: @form-control-lineheight;
+            overflow: hidden;
+            padding: @form-control-vertical-padding 10px;
+            position: relative;
+            text-align: center;
+            .font-size(@h5);
+            .transition(all @transition-time);
+
+            &.active, 
+            &:active,
+                &:focus {
+                border-color: @accent-clr;
+                color: @accent-clr;
+            }
+
+            &[disabled] {
+                opacity: 0.65;
+            }
+            
+            &.full {
+                width: 100%;
+            }
+        }
+
+        // Primary
+        & when (@type = primary) {
+            &-primary {
+                background: @btn-primary-clr;
+                border-color: @btn-primary-clr;
+                text-transform: uppercase;
+
+                &.has-active,
+                &:active,
+                    &:focus {
+                    background: darken(@btn-primary-clr, 10%);
+                    border-color: darken(@btn-primary-clr, 10%);
+                    color: #fff;
+                }
+            }
+        }
+
+        // Primary Invert
+        & when (@type = primary-invert) {
+            &-primary-invert {
+                background-color: transparent;
+                border-color: @primary-clr-light;
+                color: @primary-clr-light;
+                text-transform: uppercase;
+
+                &.has-active,
+                &:active,
+                    &:focus {
+                    background-color: darken(#FFF, 10%);
+                    border-color: darken(@primary-clr-light, 10%);
+                    color: darken(@primary-clr-light, 10%);
+                }
+            }
+        }
+
+        // Secondary
+        & when (@type = secondary) {
+            &-secondary {
+                background: @btn-secondary-clr;
+                border-color: @btn-secondary-clr;
+                text-transform: uppercase;
+
+                &.has-active,
+                &:active,
+                    &:focus {
+                    background-color: darken(@btn-secondary-clr, 34%);
+                    border-color: darken(@btn-secondary-clr, 34%);
+                    color: #fff;
+                }
+            }
+        }
+
+        // Tertiary
+        & when (@type = tertiary) {
+            &-tertiary {
+                background-color: #FFF;
+                border-color: transparent;
+                color: @base-clr;
+                padding-bottom: 10px;
+                padding-top: 10px;
+
+                &.has-active,
+                &:focus,
+                    &:active {
+                    border-color: @accent-clr;
+                    color: @accent-clr;
+                }
+            }
+        }
+
+        // Success
+        & when (@type = success) {
+            &-success {
+                background: @btn-success-clr;
+                border-color: @btn-success-clr;
+                text-transform: uppercase;
+
+                &:active,
+                    &:focus {
+                    background: darken(@btn-success-clr, 10%);
+                    border-color: darken(@btn-success-clr, 10%);
+                    color: #fff;
+                }
+            }
+        }
+
+        // Pill
+        & when (@type = pill) {
+            &-pill {
+                background-color: #FFF;
+                border-color: #EBEBEB;
+                border-radius: 3px;
+                color: @text-clr;
+                font-weight: @semi-bold;
+                min-width: 70px;
+
+                .font-size(@h5);  
+
+                &.has-active,
+                &:focus,
+                    &:active {
+                    border-color: @link-clr;
+                    color: @link-clr;
+                }
+            }
+        }
+
+        // link
+        & when (@type = link) {
+            &-link {
+                color: @link-clr;
+
+                &:active, 
+                    &:focus {
+                    border-color: transparent;
+                }
+
+                &__icon {
+                    .font-size(@h2);
+                } 
+            }
+        }
+
+        // link-alpha
+        & when (@type = link-alpha) {
+            &-link--alpha {
+                padding-bottom: 15px;
+                padding-top: 0;
+                position: relative;
+
+                &:after {
+                    border-bottom: 1px solid @border-clr;
+                    bottom: 0;
+                    content: '';
+                    display: block;
+                    left: 50%;
+                    position: absolute;
+                    transform: translateX(-50%);
+                    width: 68px;
+                }
+            }
+        }
+
+
+        // Rounded corners
+        & when (@type = round-corners) {
+            &.round-corners {
+                border-radius: 2px;
+            }
+        }
+
+    }
+}
+
+.btn-sizes(@size) {
+    & when (@type = small) {
+        .btn-xs {
+            padding: 6px;
+            .font-size(12);
+        }
+    }
+}
+
+// Icon Btn
+.icon-btn() {
+    .icon-btn {
+        background-color: #fff;
+        border: 1px solid @btn-border-clr;
+        color: @base-clr;
+        line-height: 1;
+        min-height: 54px;
+        min-width: 80px;
+        padding: 6px 0;
+
+        &__icon {
+            display: block;
+            margin-bottom: 4px;
+            .font-size(32);
+
+            svg {
+                width: 100%;
+            }
+        }
+
+        &__label {
+            color: @text-clr;
+            display: block;
+            .font-size(@h5);
+        }
+
+        &[disabled] {
+            background-color: #FFF;
+            border-color: @base-clr-medium-light;
+            color: @base-clr;
+
+            &.active {
+                border-color: @btn-primary-clr;
+                color: @btn-primary-clr;
+            }
+        }
+
+        &--large {
+            min-height: 90px;
+        }
+
+        &--txtonly  &__label {
+            .font-size(@h5);
+
+            .label-km {
+                display: block;
+                line-height: 1.5;
+                text-transform: uppercase;
+            }
+        }
+
+        .checkbox:checked + & {
+            border-color: @accent-clr;
+            color: @accent-clr;
+        }
+    }
+}

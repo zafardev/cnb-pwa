@@ -1,0 +1,133 @@
+
+/* 
+    Created on : Feb 12, 2018, 3:03:35 PM
+    Author     : muthuraman
+    Module     : Module name here...
+    Page       : Page name here...
+*/
+
+.img-wrap(@type) {
+    .img-wrap {
+        & when (@type = init) {
+            display: block;
+            overflow: hidden;
+            text-align: center;
+
+            img {
+                height: auto;
+                image-rendering: -webkit-optimize-contrast;
+                max-height: 100%;
+                max-width: 100%;
+                object-fit: contain;
+                vertical-align: middle;
+            }
+        }
+        & when (@type = mask) {
+            &--mask {
+                &:after {
+                    background-color: rgba(40,40,40,.25);
+                    bottom: 0;
+                    content: '';
+                    display: block;
+                    left: 0;
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    z-index: 2;
+                }
+            }
+        }
+        & when (@type = play) {
+            &__play {
+                color: #FFF;
+                display: block;
+                left: 50%;
+                position: absolute;
+                top: 50%;
+                transition: transform .2s ease-in;
+                z-index: 3;
+
+                .font-size(32);
+                .transform(translate(-50%, -50%));
+            }
+        }
+    }
+
+}
+
+// IMAGE ROUNDED
+.img-rounded() {
+    .img-rounded {
+        background-color: @img-placeholder-bg;
+        border-radius: 1000px;
+        display: block;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            border-radius: inherit;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+// IMAGE GRatio
+.img-ratio(@type: gratio) {
+    .img-videoratio,
+    .img-gratio {
+        background-color: @img-placeholder-bg;
+        display: block;
+        overflow: hidden;
+        position: relative;
+
+        & when (@type = gratio) {
+            padding-bottom: @g-ratio;
+        }
+
+        & when (@type = videoratio) {
+            padding-bottom: @video-ratio;
+
+            &__play {
+                bottom: 8px;
+                color: #fff;
+                line-height: 1;
+                position: absolute;
+                right: 8px;
+                text-shadow: 0 0 2px rgba(0,0,0,.75);
+                z-index: 10;
+
+                .font-size(32); 
+
+            }   
+        }
+
+        img {
+            left: 0;
+            min-height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+    }
+}
+
+.img-nocover() {
+    .img-nocover {
+        img {
+            background-color: #FFF;
+            object-fit: contain;
+        }
+    }
+}
+
+// FIGURE CAPTION
+.figure-caption() {
+    .figure-caption {
+        color: @base-clr-medium-strong;
+        display: block;
+        .font-size(@h4);
+        font-weight: @semi-bold;
+    }
+}

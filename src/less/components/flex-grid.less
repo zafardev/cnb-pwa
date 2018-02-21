@@ -1,0 +1,125 @@
+
+/* 
+    Created on : 8 Jul, 2015, 3:15:52 PM
+    Author     : muthuraman
+*/
+
+/*
+// HTML STRUCTURE //
+<div class="flexgrid">
+  <div class="flexgrid__cell">…</div>
+  <div class="flexgrid__cell">…</div>
+  <div class="flexgrid__cell">…</div>
+</div>
+*/
+
+.flexgrid {
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    &, &.btn {
+        display: flex;
+    }
+
+    /* Alignment per row */
+    &--top {
+        align-items: flex-start;
+    }
+    &--bottom {
+        align-items: flex-end;
+    }
+    &--center {
+        align-items: center;
+    }
+    &--hcenter {
+        justify-content: center;
+    }
+    &--nowrap {
+        flex-wrap: nowrap;
+    }
+
+    /* Cell Sizing */
+    &--stretch {
+        align-items: stretch; // It gives Equall height to the cells
+    }
+
+    &__cell {
+        flex: 1;
+
+        /* Alignment per cell */
+        &--top {
+            align-self: flex-start;
+        }
+        &--bottom {
+            align-self: flex-end;
+        }
+        &--center {
+            align-self: center;
+        }
+
+        /* Cell sizes */
+        &--fit {
+            flex: 1;
+        }
+        &--full {
+            flex: 0 0 100%;
+        }
+        &--1of2 {
+            flex: 0 0 50%;
+        }
+        &--1of3 {
+            flex: 0 0 33.3333%;
+        }
+        &--2of3 {
+            flex: 0 0 66.66%;
+        }
+        &--1of4 {
+            flex: 0 0 25%;
+        }
+        &--3of4 {
+            flex: 0 0 74.4%; //Hack for flex width because it's doesn't work like box sizing
+        }
+        &--1of5 {
+            flex: 0 0 20%;
+        }
+        &--2of5 {
+            flex: 0 0 40%;
+        }
+        &--3of5 {
+            flex: 0 0 60%;
+        }
+        &--4of5 {
+            flex: 0 0 80%;
+        }
+    }
+
+    /* With gutters */
+    &--gutters {
+        margin: -(@content-hr-space / 2);
+
+        > .flexgrid__cell {
+            padding: @content-hr-space / 2;
+        }
+    }
+
+    /* Cell sizes */
+    &--fit > .flexgrid__cell {
+        flex: 1;
+    }
+    &--full > .flexgrid__cell {
+        flex: 0 0 100%;
+    }
+    &--1of2 > .flexgrid__cell {
+        flex: 0 0 50%
+    }
+    &--1of3 > .flexgrid__cell {
+        flex: 0 0 33.3333%
+    }
+    &--1of4 > .flexgrid__cell {
+        flex: 0 0 25%
+    }
+
+
+}
