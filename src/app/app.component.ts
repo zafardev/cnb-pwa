@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
+import { SwUpdate } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+
 
 @Component({
   selector: 'app-root',
@@ -10,7 +13,19 @@ export class AppComponent {
   title = 'app';
   openOverlay:boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private swUpdate: SwUpdate) {
+    if (environment.production) {
+      //Check Service Worker update
+      this.swUpdate.available.subscribe(event => {
+        console.log('Update available: current version is', event.current, 'available version is', event.available);
+        window.location.reload();
+      });
+      //After update version
+      this.swUpdate.activated.subscribe(event => {
+        console.log('Update activated: old version was', event.previous, 'new version is', event.current);
+      });
+    }
+
     //Track route change event
     this.router.events.subscribe(event => {
       if(event.constructor.name === "NavigationStart") {
@@ -36,4 +51,10 @@ export class AppComponent {
     }
   }
   //End side panel show/hide
+
+  goToUrl(url:string = '')
+  {
+    window.location.href=url;
+  }
+
 }
