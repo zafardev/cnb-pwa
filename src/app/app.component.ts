@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import { SwUpdate } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import "rxjs/add/operator/filter";
 
 
 @Component({
@@ -27,11 +28,10 @@ export class AppComponent {
     }
 
     //Track route change event
-    this.router.events.subscribe(event => {
-      if(event.constructor.name === "NavigationStart") {
-        this.openOverlay = false;
-      }
-    });
+    router.events.filter(event => event instanceof NavigationStart)
+      .subscribe(e => { 
+          this.openOverlay = false;
+    })
   }
 
   //side panel show/hide

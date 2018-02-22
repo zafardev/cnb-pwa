@@ -4,7 +4,7 @@
   <ngx-carousel class="banner__carousel" [inputs]="carouselBanner" (carouselLoad)="carouselBannerLoad()">
     <ngx-item NgxCarouselItem *ngFor="let banner of featuredNews; let i = index">
       <div class="banner__card" [lazy-load-images]="{ rootMargin: '50px' }">
-        <div [routerLink]="['news/news-detail', banner.id_link]" class="banner__img img-wrap img-gratio" [attr.data-background-src]="banner.image_path">
+        <div [routerLink]="['news', banner.id_link]" class="banner__img img-wrap img-gratio" [attr.data-background-src]="banner.image_path">
           <p class="banner__caption h__al">{{banner.title}}</p>
         </div>
       </div>
