@@ -13,6 +13,10 @@ const routes: Routes = [
     path: 'news',
     loadChildren: 'app/modules/ndtv/ndtv.module#NdtvModule'
   },
+  {
+    path: 'compare-cars',
+    loadChildren: 'app/modules/compare/compare.module#CompareModule'
+  },
   {path: '**', redirectTo: 'news'}
 ];
 

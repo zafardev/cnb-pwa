@@ -19,7 +19,8 @@ import { environment } from '../environments/environment';
     HttpClientModule,
     //NdtvModule,
     AppRoutingModule,
-    environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
+    ServiceWorkerModule.register('/ngsw-worker.js')
+    //environment.production ? ServiceWorkerModule.register('/ngsw-worker.js') : [],
   ],
   providers: [],
   bootstrap: [AppComponent]
