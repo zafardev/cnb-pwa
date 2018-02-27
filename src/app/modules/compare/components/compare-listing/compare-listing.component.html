@@ -1,7 +1,140 @@
-<p>
-  compare-listing works!
-</p>
+<div class="main-content content">
 
-<p [routerLink]="['/compare-cars', 'maruti-suzuki-baleno-1404-vs-hyundai-elite-i20-1366']">
-  Compare Details
-</p>
+  <section class="section">
+    <h1 class="h1">Car Comparisons</h1>
+    <div class="compare-card card card--rcorners">
+      <div class="flexgrid">
+        <div class="compare-card__item h__ac">
+          <div class="compare-card__icon svg-icon">
+            <svg role="icon" title="car">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/icons-all.svg?v=1518612444#icon-car"></use>
+            </svg>
+          </div>
+          <div class="compare-card__ttl h__uppercase">Car1</div>
+        </div>
+        <div class="compare-card__item h__ac">
+          <div class="compare-card__icon svg-icon">
+            <svg role="icon" title="car">
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="../assets/img/icons-all.svg?v=1518612444#icon-car"></use>
+            </svg>
+          </div>
+          <div class="compare-card__ttl h__uppercase">Car2</div>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-block btn-primary">Select Cars for Compare</button>
+  </section>
+
+
+  <section class="section">
+    <h2 class="h1">Trending Comparisons</h2>
+    <div class="compare-wgt card card--rcorners" [routerLink]="['/compare-cars', 'maruti-suzuki-baleno-1404-vs-hyundai-elite-i20-1366']">
+      <div class="flexgrid">
+        <div class="compare-wgt__img img-wrap mb1">
+          <img src="https://auto.ndtvimg.com/car-images/medium/maruti-suzuki/baleno/maruti-suzuki-baleno.webp?v=2" alt="" />
+        </div>
+        <div class="compare-wgt__content">
+          <div class="compare-wgt__ttl mb1">Maruti Suzuki Baleno</div>
+          <div class="compare-wgt__price">&#8377; 32.74 - 45.34 Lakh</div>
+        </div>
+      </div>
+      <div class="compare-wgt__vs h__ac mb1"></div>
+      <div class="flexgrid">
+        <div class="compare-wgt__img img-wrap">
+          <img src="https://auto.ndtvimg.com/car-images/medium/hyundai/elite-i20/hyundai-elite-i20.webp?v=2" alt="" />
+        </div>
+        <div class="compare-wgt__content">
+          <div class="compare-wgt__ttl mb1">Hyundai Elite i20</div>
+          <div class="compare-wgt__price">&#8377; 32.74 - 45.34 Lakh</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="h1">Popular Comparisons</h2>
+    <div class="compare-card__group">
+      <div class="compare-card card card--rcorners">
+        <div class="flexgrid">
+          <div class="compare-card__item h__ac">
+            <div class="compare-card__img img-wrap">
+              <img src="https://auto.ndtvimg.com/car-images/medium/maruti-suzuki/baleno/maruti-suzuki-baleno.webp?v=2" alt="" />
+            </div>
+            <div class="compare-card__ttl">Maruti Suzuki Baleno</div>
+          </div>
+          <div class="compare-card__item h__ac">
+            <div class="compare-card__img img-wrap">
+              <img src="https://auto.ndtvimg.com/car-images/medium/hyundai/elite-i20/hyundai-elite-i20.webp?v=2" alt="" />
+            </div>
+            <div class="compare-card__ttl">Hyundai Elite i20</div>
+          </div>
+        </div>
+      </div>
+      <div class="compare-card card card--rcorners">
+        <div class="flexgrid">
+          <div class="compare-card__item h__ac">
+            <div class="compare-card__img img-wrap">
+              <img src="https://auto.ndtvimg.com/car-images/medium/maruti-suzuki/baleno/maruti-suzuki-baleno.webp?v=2" alt="" />
+            </div>
+            <div class="compare-card__ttl">Maruti Suzuki Baleno</div>
+          </div>
+          <div class="compare-card__item h__ac">
+            <div class="compare-card__img img-wrap">
+              <img src="https://auto.ndtvimg.com/car-images/medium/hyundai/elite-i20/hyundai-elite-i20.webp?v=2" alt="" />
+            </div>
+            <div class="compare-card__ttl">Hyundai Elite i20</div>
+          </div>
+        </div>
+      </div>
+      <div class="compare-card card card--rcorners">
+        <div class="flexgrid">
+          <div class="compare-card__item h__ac">
+            <div class="compare-card__img img-wrap">
+              <img src="https://auto.ndtvimg.com/car-images/medium/maruti-suzuki/baleno/maruti-suzuki-baleno.webp?v=2" alt="" />
+            </div>
+            <div class="compare-card__ttl">Maruti Suzuki Baleno</div>
+          </div>
+          <div class="compare-card__item h__ac">
+            <div class="compare-card__img img-wrap">
+              <img src="https://auto.ndtvimg.com/car-images/medium/hyundai/elite-i20/hyundai-elite-i20.webp?v=2" alt="" />
+            </div>
+            <div class="compare-card__ttl">Hyundai Elite i20</div>
+          </div>
+        </div>
+      </div>
+      <div class="compare-card card card--rcorners">
+        <div class="flexgrid">
+          <div class="compare-card__item h__ac">
+            <div class="compare-card__img img-wrap">
+              <img src="https://auto.ndtvimg.com/car-images/medium/maruti-suzuki/baleno/maruti-suzuki-baleno.webp?v=2" alt="" />
+            </div>
+            <div class="compare-card__ttl">Maruti Suzuki Baleno</div>
+          </div>
+          <div class="compare-card__item h__ac">
+            <div class="compare-card__img img-wrap">
+              <img src="https://auto.ndtvimg.com/car-images/medium/hyundai/elite-i20/hyundai-elite-i20.webp?v=2" alt="" />
+            </div>
+            <div class="compare-card__ttl">Hyundai Elite i20</div>
+          </div>
+        </div>
+      </div>
+      <div class="compare-card card card--rcorners">
+        <div class="flexgrid">
+          <div class="compare-card__item h__ac">
+            <div class="compare-card__img img-wrap">
+              <img src="https://auto.ndtvimg.com/car-images/medium/maruti-suzuki/baleno/maruti-suzuki-baleno.webp?v=2" alt="" />
+            </div>
+            <div class="compare-card__ttl">Maruti Suzuki Baleno</div>
+          </div>
+          <div class="compare-card__item h__ac">
+            <div class="compare-card__img img-wrap">
+              <img src="https://auto.ndtvimg.com/car-images/medium/hyundai/elite-i20/hyundai-elite-i20.webp?v=2" alt="" />
+            </div>
+            <div class="compare-card__ttl">Hyundai Elite i20</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

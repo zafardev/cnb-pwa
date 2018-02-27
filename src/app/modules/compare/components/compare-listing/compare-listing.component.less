@@ -1,0 +1,107 @@
+@import '../../../../../less/_mixins';
+@import '../../../../../less/_variables';
+.card(rcorners);
+.btn(init);.btn(primary);.btn(block);
+.compare-wgt {
+    padding: @content-hr-space;
+    &__img {
+        height: 74px;
+        margin-right: 16px;
+        width: 120px;
+    }
+    &__ttl {
+        .font-size(16);
+    }
+    &__price {
+        color: @accent-clr;
+        font-weight: @semi-bold;
+        .font-size(14);
+    }
+    &__content {
+        padding-top: 16px;
+    }
+    &__vs {
+        position: relative;
+        &:before,
+        &::after {
+            display: block;
+            margin: 0 auto;
+        }
+        &:after {
+            background-color: #F5F5F5;
+            border-left: 5px solid #FFF;
+            border-right: 5px solid #FFF;
+            border-radius: 50%;
+            color: #2A2A2A;
+            content: 'VS';
+            height: 30px;
+            line-height: 30px;
+            position: relative;
+            width: 40px;
+            z-index: 1;
+            .font-size(12);
+        }
+        &:before {
+            border-bottom: 1px solid rgba(0, 0, 0, .08);
+            content: '';
+            height: 0;
+            max-width: 266px;
+            transform: translateY(15px); // half of round height
+        }
+    }
+}
+
+.compare-card {
+    padding: 12px;
+    &__group & {
+        &:not(:last-child) {
+            margin-bottom: 6px;
+        }
+    }
+    &__item {
+        flex-grow: 1;
+        position: relative;
+        width: 33.3%;
+        &:before,
+        &::after {
+            display: block;
+            position: absolute;
+            right: 100%;
+        }
+        &:after {
+            background-color: #F5F5F5;
+            border-radius: 50%;
+            color: #2A2A2A;
+            content: 'VS';
+            height: 30px;
+            line-height: 30px;
+            top: 50%;
+            transform: translate(50%, -50%); // half of round height
+            width: 30px;
+            z-index: 1;
+            .font-size(12);
+        }
+        &:before {
+            border-left: 1px solid rgba(0, 0, 0, .08);
+            content: '';
+            height: 100%;
+            width: 0;
+        }
+        &:first-child::after,
+        &:first-child::before {
+            display: none;
+        }
+    }
+    &__img {
+        height: 50px;
+        margin-bottom: 8px;
+    }
+    &__icon {
+        margin-bottom: 8px;
+        .font-size(50);
+    }
+    &__ttl {
+        color: @text-clr;
+        .font-size(13);
+    }
+}

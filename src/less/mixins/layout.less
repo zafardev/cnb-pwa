@@ -14,13 +14,19 @@
     }
 }
 
-.main-content(@pt: @main-content-vr-space, @pb: @main-content-vr-space) {
+.main-content(@type: null, @pt: @main-content-vr-space, @pb: @main-content-vr-space) {
     .main-content { 
         padding-bottom: @pt;
         padding-top: @pb;
 
         .section:last-child {
             margin-bottom: 0;
+        }
+
+        & when (@type = alpha) {
+            &--white {
+                background-color: #FFF; // FF FF FF
+            }
         }
     }
 }
